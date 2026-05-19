@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5001:5001"  # מיפוי פורט המחשב (ימין) לפורט הקונטיינר (שמאל)
+    volumes:
+      - ./backend:/app  # מסנכרן את הקבצים בזמן אמת בלי צורך לבנות מחדש
+    environment:
+      - FLASK_ENV=development
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules # מונע דריסה של תיקיית המודולים שבתוך הקונטיינר
+    stdin_open: true    # הכרחי כדי ש-React Scripts יעבוד בסביבת דוקר
+    tty: true           # מאפשר הצגה תקינה של הלוגים של הפרונטנד
+    depends_on:
+      - backend         # מוודא שהבקאנד יעלה לפני הפרונטנד
