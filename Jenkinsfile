@@ -46,6 +46,9 @@ pipeline {
                 echo 'Testing Frontend (Port 3000)...'
                 // בדיקה שהאתר באוויר
                 sh 'curl -f http://localhost:3000 || exit 1'
+
+                echo 'Testing connection ...'
+                sh 'curl -f http://localhost:5001/api/todos || exit 1'
             }
         }
 
