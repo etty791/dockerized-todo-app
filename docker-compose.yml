@@ -6,7 +6,7 @@ services:
     ports:
       - "5001:5001"  # מיפוי פורט המחשב (ימין) לפורט הקונטיינר (שמאל)
     volumes:
-      - ./backend:/app  # מסנכרן את הקבצים בזמן אמת בלי צורך לבנות מחדש
+      - db_data:/app
     environment:
       - FLASK_ENV=development
 
@@ -21,3 +21,5 @@ services:
     tty: true           # מאפשר הצגה תקינה של הלוגים של הפרונטנד
     depends_on:
       - backend         # מוודא שהבקאנד יעלה לפני הפרונטנד
+volumes:
+  db_data:
