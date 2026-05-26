@@ -3,6 +3,7 @@ version: '3.8'
 services:
   backend:
     build: ./backend
+    image: etty791/backend:latest
     ports:
       - "5001:5001"  # מיפוי פורט המחשב (ימין) לפורט הקונטיינר (שמאל)
     volumes:
@@ -12,6 +13,7 @@ services:
 
   frontend:
     build: ./frontend
+    image: etty791/frontend:latest
     ports:
       - "3000:3000"
     volumes:
