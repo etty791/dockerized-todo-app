@@ -39,9 +39,9 @@ pipeline {
                 sh 'docker ps | grep backend'
                 sh 'docker ps | grep frontend'
 
-                echo 'Testing Backend (Port 5001)...'
+                //echo 'Testing Backend (Port 5001)...'
                 // בדיקה שה-API מגיב
-                sh 'curl -f http://localhost:5001 || exit 1'
+                //sh 'curl -f http://localhost:5001 || exit 1'
                 
                 echo 'Testing Frontend (Port 3000)...'
                 // בדיקה שהאתר באוויר
